@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+// TO INCREASE FONT SIZE ----------------------------------------------
+// Increase button	
+$("#increase-btn").click(function(){
+	
+	// The each() function selects all elements inside #text-holder
+	$("#text-holder").each( function(){	
+		
+		// The parseInt() function incrases the value of by +1 each time the increas button triggered
+		$("#text-holder").css( "font-size" , parseInt($("#text-holder").css("font-size"))+ +1);		 
+	});
+		 
+}); 
+	
+
+// TO DECREASE FONT SIZE ------------------------------------------------------
+// Decrease button
+$("#decrease-btn").click(function(){
+	
+	// The each() function selects all elements inside #text-holder
+	$("#text-holder").each( function(){	
+		
+		// The parseInt() function decrases the value of by -1 each time the decrease button triggered
+		$("#text-holder").css( "font-size" , parseInt($("#text-holder").css("font-size"))+ -1);		 
+	});		
+		 
+});
+
+
+// TO CATCH THE ORIGINAL FONT SIZE
+// The each() function selects all elements inside #text-holder
+$("#text-holder").each( function(){	 
+		
+	// The data() gets the font size inside #text-holder container  and named (original-FontSize)
+	$("#text-holder").data("original-FontSize", $("#text-holder").css("font-size"));
+	
+});
+	
+// TO REST THE FONT SIZE TO ORIGINAL FONT SIZE ----------------------------------
+// Reset button triggers the each() function and the data() method. 
+$("#reset-btn").click(function(){	
+	
+	// The each() function selects all elements inside #text-holder
+	$("#text-holder").each( function(){
+		
+		// data() method that has named ( original-FontSize ) that catched the font size of each elements inside #text-holder container now setted back to original font size.
+		$("#text-holder").css( "font-size" , $("#text-holder").data("original-FontSize") );
+	});
+	
+});	
+	
+
+});
+</script>
+</head>
+<body> 
+	<p id="font-size"></p>
+	<button id="increase-btn">A+</button> 
+	<button id="decrease-btn">A-</button>  
+	<button id="reset-btn">A</button>  
+
+<div id="text-holder" style="padding:20px; font-size:20px;">
+	<h1>H1 tag, Title!</h1>
+	This is a text inside a contaner!
+	<p>This is text inside <b>p</b> html tag.  </p>
+	<span>This is text inside <b>span</b> html tag. </span><br>
+	<div>This is text inside <b>div</b> html tag. </div>
+	
+</div>
+
+</body>
+</html>
