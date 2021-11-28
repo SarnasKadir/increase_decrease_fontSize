@@ -1,1 +1,55 @@
 
+ <!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+
+	var $text_holder = $("#text-holder");
+	var $increase_btn = $("#increase-btn");
+	var $decrease_btn = $("#decrease-btn");
+	var $reset_btn = $("#reset-btn");
+	
+	$increase_btn.click(function(){
+		$text_holder.each( function(){
+			$text_holder.css( "font-size" , parseInt( $text_holder.css("font-size")) + +1);		 
+		});
+	});
+	
+	$decrease_btn.click(function(){
+		$text_holder.each( function(){
+			$text_holder.css( "font-size" , parseInt( $text_holder.css("font-size")) + -1);		 
+		});
+	});
+	
+	$text_holder.each( function(){
+		$(this).data("original-FontSize", $(this).css("font-size"));
+	});
+	
+	$reset_btn.click(function(){
+		$text_holder.each( function(){
+			$(this).css( "font-size" , $(this).data("original-FontSize") );
+		});
+	});
+});
+</script>
+</head>
+<body> 
+
+	<button id="increase-btn">A+</button> 
+	<button id="decrease-btn">A-</button>  
+	<button id="reset-btn">A</button>  
+
+<div id="text-holder" style="padding:20px; font-size:20px;">
+	<h1>H1 tag, Title!</h1>
+	This is a text inside a contaner!
+	<p>This is text inside <b>p</b> html tag.  </p>
+	<span>This is text inside <b>span</b> html tag. </span><br>
+	<div>This is text inside <b>div</b> html tag. </div>
+	
+</div>
+
+</body>
+</html>
