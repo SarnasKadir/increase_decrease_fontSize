@@ -1,2 +1,2 @@
 # increase_decrease_fontSize
-Increase, Decrease and Reset font size.
+Increase, Decrease and Reset font size with jQuery.
